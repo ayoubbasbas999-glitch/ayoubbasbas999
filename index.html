@@ -1,18 +1,119 @@
-<!doctype html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090b14">
+<title>Legends of Games — Play. Connect. Compete. | v6</title>
+<style>
+:root{--bg:#080a12;--panel:#111525;--panel2:#171d31;--line:#252d45;--text:#f4f6ff;--muted:#9ba5bf;--purple:#9b72ff;--cyan:#45e2e8;--pink:#f16bce;--green:#62e6a5;--shadow:0 18px 55px #0007}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% -10%,#34215e55,transparent 35%),radial-gradient(ellipse at 10% 30%,#123f4b33,transparent 30%),var(--bg);color:var(--text);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+button,input,textarea,select{font:inherit}button{cursor:pointer}.app{display:grid;grid-template-columns:245px 1fr;min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;padding:24px 16px;background:#090c16d9;border-right:1px solid var(--line);backdrop-filter:blur(18px);display:flex;flex-direction:column;z-index:5}.brand{display:flex;align-items:center;gap:11px;padding:4px 9px 28px}.logo{width:42px;height:42px;border-radius:13px;background:linear-gradient(135deg,var(--purple),#5634a7 55%,var(--cyan));display:grid;place-items:center;font-weight:950;font-size:17px;box-shadow:0 0 28px #9b72ff55}.brand strong{display:block;letter-spacing:.06em;font-size:13px}.brand small{color:var(--muted);font-size:10px;letter-spacing:.18em}.nav-label{color:#66718d;font-size:10px;font-weight:800;letter-spacing:.16em;padding:12px 12px 7px}.nav{display:grid;gap:5px}.nav button{border:1px solid transparent;background:transparent;color:var(--muted);padding:11px 12px;text-align:left;border-radius:11px;display:flex;align-items:center;gap:12px;transition:.2s}.nav button:hover,.nav button.active{background:linear-gradient(100deg,#9b72ff24,#45e2e811);border-color:#9b72ff35;color:white}.nav .ico{width:20px;text-align:center;font-size:17px}.side-bottom{margin-top:auto;border:1px solid var(--line);background:linear-gradient(145deg,#171d31,#101423);padding:14px;border-radius:14px}.side-bottom p{font-size:12px;color:var(--muted);margin:5px 0 12px}.side-bottom button{width:100%}
+main{min-width:0;padding:25px clamp(16px,3vw,42px) 60px;max-width:1600px;width:100%;margin:auto}.topbar{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:28px}.crumb{color:var(--muted);font-size:13px}.top-actions{display:flex;align-items:center;gap:10px}.search{width:min(290px,35vw);background:#111525;border:1px solid var(--line);border-radius:11px;padding:10px 13px;color:white;outline:none}.search:focus,input:focus,textarea:focus,select:focus{border-color:var(--purple)!important;box-shadow:0 0 0 3px #9b72ff20}.avatar{width:37px;height:37px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#9b72ff,#45e2e8);color:#090b14;font-weight:900}.page{display:none;animation:fade .25s ease}.page.active{display:block}@keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}.eyebrow{color:var(--cyan);font-size:11px;letter-spacing:.2em;font-weight:800;text-transform:uppercase}.hero{position:relative;overflow:hidden;border:1px solid #6f58a855;border-radius:22px;padding:clamp(24px,4vw,48px);background:linear-gradient(110deg,#17152c 0%,#17152cdd 48%,#122c3b 100%);box-shadow:var(--shadow);min-height:270px;display:flex;align-items:center}.hero:after{content:"";position:absolute;width:340px;height:340px;border-radius:50%;right:4%;top:-100px;border:1px solid #9b72ff44;box-shadow:0 0 0 28px #9b72ff0c,0 0 0 58px #45e2e808, inset 0 0 70px #45e2e81a}.hero-content{position:relative;z-index:1;max-width:620px}.hero h1{font-size:clamp(34px,5vw,58px);line-height:1.02;letter-spacing:-.045em;margin:12px 0}.gradient{background:linear-gradient(90deg,#c8b4ff,var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}.hero p{max-width:550px;color:#c1c7da;margin:14px 0 22px}.actions{display:flex;gap:10px;flex-wrap:wrap}.btn{border:1px solid var(--line);border-radius:10px;padding:10px 15px;color:white;background:#1a2033;font-weight:700;transition:.2s}.btn:hover{transform:translateY(-1px);border-color:#9b72ff88}.btn.primary{background:linear-gradient(110deg,#8c61f4,#5c7bea);border:0;box-shadow:0 8px 24px #7756d944}.btn.ghost{background:#ffffff08}.btn.small{padding:7px 11px;font-size:12px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:30px 0 14px}.section-head h2{margin:0;font-size:20px}.section-head p{margin:3px 0 0;color:var(--muted);font-size:12px}.muted{color:var(--muted)}.grid{display:grid;gap:14px}.stats{grid-template-columns:repeat(4,minmax(0,1fr));margin-top:18px}.stat,.card{background:linear-gradient(145deg,#151b2d,#101523);border:1px solid var(--line);border-radius:16px;padding:17px}.stat .label{color:var(--muted);font-size:12px}.stat strong{font-size:26px;display:block;margin-top:5px}.stat .hint{color:var(--green);font-size:11px}.two{grid-template-columns:1.3fr .7fr}.three{grid-template-columns:repeat(3,minmax(0,1fr))}.game-card{padding:0;overflow:hidden}.game-art{height:115px;display:flex;align-items:end;padding:14px;background:linear-gradient(135deg,#4e2b88,#171d31 65%,#12636a);position:relative}.game-art:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,#080a12aa,transparent)}.game-art span{position:relative;z-index:1;font-weight:900;font-size:19px;text-shadow:0 2px 12px #000}.game-body{padding:14px}.tag{display:inline-flex;align-items:center;border:1px solid #9b72ff44;color:#c9b8ff;background:#9b72ff14;border-radius:999px;padding:4px 8px;font-size:10px;font-weight:800}.row{display:flex;align-items:center;justify-content:space-between;gap:10px}.post{margin-bottom:12px}.post-top{display:flex;align-items:center;gap:10px}.mini-avatar{width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,#8e66f5,#45e2e8);display:grid;place-items:center;color:#0b0d16;font-weight:900}.post p{color:#d6daea;margin:13px 0}.post-actions{display:flex;gap:8px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:11px}.post-actions button{border:0;background:none;color:var(--muted);font-size:12px;padding:4px}.post-actions button:hover{color:var(--cyan)}.list-item{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}.list-item:last-child{border:0}.rank{width:28px;height:28px;border-radius:8px;background:#9b72ff1c;color:#c8b4ff;display:grid;place-items:center;font-weight:900}.list-item .grow{flex:1;min-width:0}.list-item small{display:block;color:var(--muted)}.progress{height:8px;background:#252d45;border-radius:99px;overflow:hidden}.progress span{height:100%;display:block;background:linear-gradient(90deg,var(--purple),var(--cyan));border-radius:99px}.form-row{display:flex;gap:9px;flex-wrap:wrap}.field{width:100%;background:#0b1020;border:1px solid var(--line);border-radius:10px;padding:11px 12px;color:white;outline:none}.form-row .field{flex:1;min-width:150px}.form-stack{display:grid;gap:10px}.empty{padding:25px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:13px}.profile-head{display:flex;align-items:center;gap:18px;padding:22px}.big-avatar{width:76px;height:76px;border-radius:22px;background:linear-gradient(135deg,#9b72ff,#45e2e8);display:grid;place-items:center;color:#090b14;font-size:28px;font-weight:950}.pill{border-radius:999px;background:#45e2e81a;color:var(--cyan);padding:5px 9px;font-size:11px}.toast{position:fixed;bottom:22px;right:22px;background:#202941;border:1px solid #59648a;padding:12px 16px;border-radius:12px;box-shadow:var(--shadow);z-index:20;opacity:0;transform:translateY(10px);transition:.25s;pointer-events:none}.toast.show{opacity:1;transform:none}.mobile-menu{display:none}.reaction-box{height:190px;border-radius:16px;background:#182038;border:1px solid var(--line);display:grid;place-items:center;text-align:center;padding:20px;cursor:pointer;user-select:none}.reaction-box.ready{background:#8b252d}.reaction-box.go{background:#126746}.reaction-box h3{font-size:23px;margin:0 0 5px}.table{width:100%;border-collapse:collapse}.table td,.table th{text-align:left;padding:11px;border-bottom:1px solid var(--line);font-size:13px}.table th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.1em}.notice{border:1px solid #45e2e833;background:#45e2e80d;padding:13px;border-radius:12px;color:#c6dce1;font-size:12px}
+@media(max-width:1050px){.app{grid-template-columns:205px 1fr}.stats{grid-template-columns:repeat(2,1fr)}.three{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.app{display:block}.sidebar{position:fixed;top:auto;bottom:0;left:0;right:0;width:100%;height:auto;padding:7px 8px calc(7px + env(safe-area-inset-bottom));border-right:0;border-top:1px solid var(--line);background:#090c16f5}.brand,.nav-label,.side-bottom{display:none}.nav{display:flex;justify-content:space-around;gap:2px}.nav button{padding:8px 5px;flex:1;justify-content:center;flex-direction:column;gap:2px;font-size:9px;border-radius:8px}.nav .ico{font-size:17px}.app main{padding:17px 14px 105px}.topbar{margin-bottom:18px}.search{width:min(55vw,220px)}.hero{min-height:260px}.hero:after{right:-190px}.two,.three{grid-template-columns:1fr}.stats{gap:9px}.stat{padding:12px}.stat strong{font-size:22px}.section-head{margin-top:24px}.section-head h2{font-size:18px}}
+@media(max-width:390px){.nav button{font-size:8px}.nav .ico{font-size:15px}.search{width:45vw}.stats{grid-template-columns:repeat(2,1fr)}}
+</style>
+<style>
+.modal{position:fixed;inset:0;background:#000a;display:none;place-items:center;z-index:50;padding:16px}.modal.show{display:grid}.modal .box{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px;max-width:520px;width:100%;max-height:85vh;overflow:auto;box-shadow:var(--shadow)}.modal ul{padding-left:18px;color:var(--muted)}.modal li{margin:6px 0}
+.chat{display:grid;grid-template-columns:230px 1fr;gap:16px;padding:0}.chat-list{border-right:1px solid var(--line);padding:10px}.chat-list .list-item{cursor:pointer}.chat-list .list-item.on{border-color:var(--purple)}.chat-main{padding:14px;display:flex;flex-direction:column}.chat-log{min-height:260px;max-height:360px;overflow:auto;display:flex;flex-direction:column;gap:8px}.bub{max-width:78%;padding:8px 12px;border-radius:14px;background:var(--panel2);font-size:13px}.bub.me{align-self:flex-end;background:linear-gradient(135deg,#5634a7,#7a56d6)}
+.online-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#62e6a5;box-shadow:0 0 9px #62e6a5;margin-right:5px}.offline-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#68718a;margin-right:5px}.friend-chip{display:flex;align-items:center;gap:8px;padding:9px;border-bottom:1px solid var(--line);cursor:pointer;border-radius:8px}.friend-chip.selected{background:#9b72ff18}.friend-chip .grow{flex:1;min-width:0}.friend-chip small{display:block;color:var(--muted);font-size:10px}.cmts{margin-top:10px;display:grid;gap:6px}.cmts div{background:var(--panel2);padding:7px 10px;border-radius:10px;font-size:12px}.badge-off{opacity:.4}
+@media(max-width:760px){.chat{grid-template-columns:1fr}.chat-list{border-right:0;border-bottom:1px solid var(--line);display:flex;overflow:auto}}
+</style></head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="logo">LOG</div><div><strong>LEGENDS OF GAMES</strong><small>PLAY. CONNECT. COMPETE.</small></div></div>
+  <div class="nav-label">WORKSPACE</div>
+  <nav class="nav" id="nav">
+    <button class="active" data-page="home"><span class="ico">⌂</span>Home</button>
+    <button data-page="discover"><span class="ico">⌕</span>Discover</button>
+    <button data-page="community"><span class="ico">◉</span>Community</button>
+    <button data-page="teams"><span class="ico">♟</span>Teams</button>
+    <button data-page="tournaments"><span class="ico">♜</span>Tournaments</button>
+    <button data-page="training"><span class="ico">◎</span>Training</button>
+    <button data-page="library"><span class="ico">▣</span>Game library</button>
+    <button data-page="leaderboard"><span class="ico">♛</span>Leaderboard</button>
+    <button data-page="messages"><span class="ico">✉</span>Messages</button>
+    <button data-page="marketplace"><span class="ico">◇</span>Marketplace</button>
+    <button data-page="profile"><span class="ico">◈</span>My profile</button>
+    <button data-page="settings"><span class="ico">⚙</span>Settings</button>
+  </nav>
+  <div class="side-bottom"><strong>Ready to level up?</strong><p>Complete a training challenge and build your legend.</p><button class="btn primary small" onclick="showPage('training')">Start training →</button></div>
+</aside>
+<main>
+  <header class="topbar"><div><div class="eyebrow">GAMING COMMUNITY NETWORK</div><div class="crumb" id="crumb">Home / Overview</div><div class="muted" style="font-size:10px;margin-top:3px">LOCAL DEMO BUILD • sample community data</div></div><div class="top-actions"><input class="search" id="globalSearch" placeholder="Search games, players..." aria-label="Search"><button class="btn small ghost" id="logNotifications" title="Notifications" aria-label="Notifications">♢ <span id="notificationDot">0</span></button><div class="avatar" id="topAvatar">L</div></div></header>
+
+  <section class="page active" id="page-home">
+    <div class="hero"><div class="hero-content"><div class="eyebrow">YOUR NEXT LEVEL STARTS HERE</div><h1>WELCOME TO THE<br><span class="gradient">LEGENDS ARENA.</span></h1><p>Find your squad, sharpen your skills, share your best moments and make your name in the gaming community.</p><div class="actions"><button class="btn primary" onclick="showPage('discover')">Explore the platform ↗</button><button class="btn ghost" onclick="showPage('community')">Join the community</button></div></div></div>
+    <div class="grid stats">
+      <div class="stat"><div class="label">YOUR LEVEL</div><strong id="homeLevel">01</strong><div class="hint">Rookie legend</div></div>
+      <div class="stat"><div class="label">TOTAL XP</div><strong id="homeXp">120</strong><div class="hint">Keep progressing</div></div>
+      <div class="stat"><div class="label">ACHIEVEMENTS</div><strong id="homeBadges">2</strong><div class="hint">Badges unlocked</div></div>
+      <div class="stat"><div class="label">COMMUNITY</div><strong>1.2K</strong><div class="hint">Players online in demo</div></div>
+    </div>
+    <div class="section-head"><div><h2>Explore games</h2><p>Find your next favorite world.</p></div><button class="btn small ghost" onclick="showPage('discover')">View all →</button></div>
+    <div class="grid three" id="homeGames"></div>
+    <div class="grid two">
+      <div><div class="section-head"><div><h2>Community pulse</h2><p>What's happening around LOG.</p></div><button class="btn small ghost" onclick="showPage('community')">Open feed →</button></div><div id="homePosts"></div></div>
+      <div><div class="section-head"><div><h2>Top legends</h2><p>Players making their mark.</p></div><button class="btn small ghost" onclick="showPage('leaderboard')">Leaderboard →</button></div><div class="card" id="homeLeaders"></div></div>
+    </div>
+  </section>
+
+  <section class="page" id="page-discover">
+    <div class="section-head"><div><div class="eyebrow">FIND YOUR NEXT ADVENTURE</div><h2>Discover games & players</h2><p>Explore popular games and example player profiles. Player counts and profiles are illustrative demo data.</p></div></div>
+    <div class="form-row" style="margin-bottom:15px"><input class="field" id="gameSearch" placeholder="Search a game..."><select class="field" id="genreFilter" style="max-width:190px"><option value="All">All genres</option><option>Sandbox</option><option>FPS</option><option>Battle Royale</option><option>MOBA</option><option>Adventure</option></select></div>
+    <div class="grid three" id="discoverGames"></div>
+    <div class="section-head"><div><h2>Players to meet</h2><p>Example profiles only — not registered players.</p></div></div><div class="grid three" id="players"></div>
+  </section>
+
+  <section class="page" id="page-community">
+    <div class="section-head"><div><div class="eyebrow">SHARE YOUR WORLD</div><h2>Community feed</h2><p>Ask questions, share wins and help other gamers.</p></div></div>
+    <div class="card" style="margin-bottom:15px"><div class="form-stack"><textarea class="field" id="postText" rows="3" placeholder="What's happening in your gaming world?"></textarea><div class="row"><span class="muted" style="font-size:11px">Be respectful. Keep personal information private.</span><button class="btn primary" onclick="createPost()">Publish post ↗</button></div></div></div>
+    <div class="card" style="margin-bottom:14px"><div class="row" style="flex-wrap:wrap"><div><b>LOG Community AI</b><p class="muted" style="font-size:12px;margin:3px 0 0">A clearly labeled demo bot posts gaming prompts using rotating nicknames while this page is open.</p></div><label class="pill" style="cursor:pointer"><input id="communityBotToggle" type="checkbox" checked style="accent-color:var(--cyan);vertical-align:middle"> Bot active</label></div><div class="muted" style="font-size:11px;margin-top:8px" id="communityBotStatus">Community prompts are enabled.</div></div>
+    <div id="communityPosts"></div>
+  </section>
+
+  <section class="page" id="page-teams">
+    <div class="section-head"><div><div class="eyebrow">BETTER TOGETHER</div><h2>Find your squad</h2><p>Discover teams and create a group for your favorite game.</p></div><button class="btn primary" onclick="document.getElementById('teamForm').scrollIntoView({behavior:'smooth'})">+ Create team</button></div>
+    <div class="grid three" id="teamList"></div>
+    <div class="section-head"><div><h2>Create a team</h2><p>Start a squad and invite other players.</p></div></div>
+    <div class="card" id="teamForm"><div class="form-row"><input class="field" id="teamName" placeholder="Team name"><select class="field" id="teamGame"><option>Minecraft</option><option>Valorant</option><option>Fortnite</option><option>Roblox</option><option>Other</option></select><select class="field" id="teamStyle"><option>Casual</option><option>Competitive</option><option>Learning together</option></select><button class="btn primary" onclick="createTeam()">Create</button></div></div>
+  </section>
+
+  <section class="page" id="page-tournaments">
+    <div class="section-head"><div><div class="eyebrow">ENTER THE ARENA</div><h2>Tournaments</h2><p>Join friendly community competitions.</p></div></div>
+    <div class="notice">Demo mode: tournament registration is simulated. No official matches or prizes are being managed.</div>
+    <div class="grid three" id="tournamentList" style="margin-top:15px"></div>
+
+    <div class="section-head"><div><h2>Bracket preview</h2><p>Example bracket layout. No live matches are scheduled.</p></div></div>
+    <div class="card">
+      <div class="grid three">
+        <div><span class="tag">ROUND 1</span><p><b>Team Nova</b> vs Team Orbit</p><p><b>Pixel Crew</b> vs Block Squad</p></div>
+        <div><span class="tag">SEMI-FINAL</span><p>Winner 1 vs Winner 2</p><p>Winner 3 vs Winner 4</p></div>
+        <div><span class="tag">FINAL</span><p><b>Finalists</b></p><p class="muted">Winner becomes champion</p></div>
+      </div>
+    </div>
+    <div class="section-head"><div><h2>Suggest a community event</h2><p>Create a local event proposal for the demo.</p></div></div>
+    <div class="card form-row">
+      <input class="field" id="eventIdeaName" placeholder="Event name" maxlength="45">
+      <select class="field" id="eventIdeaGame"><option>Minecraft</option><option>Valorant</option><option>Fortnite</option><option>Roblox</option><option>Other</option></select>
+      <select class="field" id="eventIdeaType"><option>Friendly</option><option>Creative challenge</option><option>Training session</option><option>Community meetup</option></select>
+      <button class="btn primary" id="submitEventIdea">Save proposal</button>
+    </div>
+    <div id="eventIdeas" class="grid three" style="margin-top:12px"></div>
+
+  </section>
+
+  <section class="page" id="page-training">
+    <div class="section-head"><div><div class="eyebrow">BUILD YOUR SKILLS</div><h2>Training center</h2><p>Use the Legend975 Aim Trainer for focused Minecraft PvP practice. Completed rounds update your local training progress.</p></div><span class="tag">TRAIN • IMPROVE • REPEAT</span></div>
+    <div class="card" style="margin-bottom:16px;padding:0;overflow:hidden"><div class="row" style="padding:14px 16px"><div><h3 style="margin:0">Legend975 Aim Trainer</h3><small class="muted">7 modes, Minecraft settings import and PRO DUEL ranks. Finished rounds earn XP.</small></div><span class="tag">AIM LAB</span></div><iframe id="trainerFrame" title="Legend975 Aim Trainer" allow="fullscreen" style="width:100%;height:1500px;border:0;display:block;background:#070b14"></iframe><script type="text/html" id="trainerSrc"><!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#080d18">
 <meta name="description" content="Legend975 Minecraft PvP aim trainer with six free practice modes and one premium duel mode.">
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VTWBF S2HV8".replace(" ","")></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-VTWBF S2HV8'.replace(" ",""));
-</script>
 <title>Legend975 Aim Trainer | Minecraft Aim Lab</title>
 <style>
 :root{color-scheme:dark;--bg:#070b14;--panel:#101a2b;--panel2:#0b1423;--edge:#263957;--text:#edf3ff;--muted:#91a4c3;--accent:#77a3ff;--good:#73e0b1;--bad:#ff788d;--gold:#ffd477}
@@ -286,5 +387,460 @@ if(!old.created){try{const g=localStorage.getItem('ss_settings');if(g&&!localSto
 user={id:id,name:prof[id].name};$('login').close();renderAcct();loadUserState();};
 renderAcct();loadUserState();resize();window.addEventListener('resize',resize);if(window.ResizeObserver)new ResizeObserver(resize).observe(arena);
 })();
+<\/script>
+
+<script>
+(function(){
+  const send = data => parent.postMessage(Object.assign({log:1}, data), '*');
+  const byId = id => document.getElementById(id);
+  let lastState = '';
+  const stateNode = byId('roundState');
+  if (stateNode) {
+    new MutationObserver(() => {
+      const current = stateNode.textContent.trim();
+      if (current === 'ROUND COMPLETE' && lastState !== current) {
+        send({
+          type:'round',
+          mode:byId('modeTitle')?.textContent || 'Aim training',
+          hits:Number(byId('hits')?.textContent) || 0,
+          accuracy:byId('accuracy')?.textContent || '—',
+          rank:byId('rankName')?.textContent || 'Unranked'
+        });
+      }
+      lastState = current;
+    }).observe(stateNode,{childList:true,characterData:true,subtree:true});
+  }
+  const reportHeight = () => send({type:'h',h:document.documentElement.scrollHeight});
+  if (window.ResizeObserver) new ResizeObserver(reportHeight).observe(document.body);
+  window.addEventListener('load',reportHeight);
+  window.addEventListener('resize',reportHeight);
+  reportHeight();
+})();
+<\/script>
+
+</body></html></script></div>
+    <div class="grid two">
+      <div class="card"><h3 style="margin-top:0">Reaction time test</h3><p class="muted">Wait until the panel turns green, then click as quickly as you can.</p><div class="reaction-box" id="reactionBox" onclick="reactionClick()"><div><h3 id="reactionTitle">Ready to test?</h3><span id="reactionHint" class="muted">Press Start, then wait for green.</span></div></div><div class="row" style="margin-top:12px"><button class="btn primary" id="reactionStart" onclick="startReaction()">Start test</button><span class="muted" id="reactionBest">Personal best: —</span></div></div>
+      <div class="card"><div class="row"><h3 style="margin:0">Legend975 training plan</h3><span class="tag">15 MIN</span></div><p class="muted" style="font-size:12px;margin:8px 0 12px">Follow this short routine inside the Aim Trainer. XP is awarded when you actually finish an aim round or reaction test — there is no manual claim button.</p><div class="list-item"><span class="rank">01</span><div class="grow"><b>Warm-up · Classic</b><small>3 min · Build a steady rhythm and warm up your aim.</small></div><button class="btn small ghost" onclick="selectTrainerMode('classic')">Start</button></div><div class="list-item"><span class="rank">02</span><div class="grow"><b>Flick + Precision</b><small>4 min · Practice quick target changes, then smaller targets.</small></div><button class="btn small ghost" onclick="selectTrainerMode('flick')">Start</button></div><div class="list-item"><span class="rank">03</span><div class="grow"><b>Tracking + Strafe</b><small>5 min · Follow moving targets and control your aim.</small></div><button class="btn small ghost" onclick="selectTrainerMode('tracking')">Start</button></div><div class="list-item"><span class="rank">04</span><div class="grow"><b>Reaction check</b><small>3 min · Finish with the reaction test below.</small></div><button class="btn small ghost" onclick="document.getElementById('reactionBox').scrollIntoView({behavior:'smooth',block:'center'})">Go</button></div><p class="tiny" style="margin:12px 0 0">Tip: take a short break between rounds. Focus on controlled, accurate practice rather than rushing.</p></div>
+    </div>
+    <div class="section-head"><div><h2>Your progress</h2><p>Demo progress stored locally.</p></div></div><div class="card"><div class="row"><b>Training sessions</b><strong id="trainingSessions">0</strong></div><div class="progress" style="margin:12px 0"><span id="trainingProgress" style="width:0%"></span></div><small class="muted">Complete practice sessions to fill your progress bar.</small></div>
+  </section>
+
+  <section class="page" id="page-library">
+    <div class="section-head"><div><div class="eyebrow">KNOW YOUR GAME</div><h2>Game library</h2><p>Guides and tips for every game on the platform.</p></div><span class="tag" id="libCount"></span></div>
+    <div class="form-row" style="margin-bottom:15px"><input class="field" id="libSearch" placeholder="Search the library..."><select class="field" id="libGenre" style="max-width:190px"></select></div>
+    <div class="grid three" id="libraryGrid"></div>
+  </section>
+
+  <section class="page" id="page-leaderboard">
+    <div class="section-head"><div><div class="eyebrow">COMMUNITY RECOGNITION</div><h2>Leaderboard</h2><p>Example rankings for the first version.</p></div><span class="tag">SEASON 01 • DEMO</span></div>
+    <div class="card"><table class="table"><thead><tr><th>Rank</th><th>Player</th><th>Specialty</th><th>XP</th></tr></thead><tbody id="leaderTable"></tbody></table></div>
+  </section>
+
+  <section class="page" id="page-messages">
+    <div class="section-head"><div><div class="eyebrow">STAY CONNECTED</div><h2>Messages & friends</h2><p>Email demo sign-in, friend invitations and manual chats.</p></div><span class="tag">FRIENDS BETA</span></div>
+    <div class="grid two" style="margin-bottom:14px">
+      <div class="card form-stack"><div class="row"><h3 style="margin:0">Email sign-in</h3><span class="pill" id="emailAccountState">Guest</span></div>
+        <p class="muted" style="font-size:12px;margin:0">Local demo only: email is not verified and no password is requested or stored. This is not a secure online account.</p>
+        <input class="field" id="accountEmail" type="email" placeholder="Your email address" maxlength="100">
+        <input class="field" id="accountNickname" placeholder="Your gaming nickname" maxlength="22">
+        <div class="row"><button class="btn primary" id="emailSignIn">Continue with email</button><button class="btn ghost small" id="emailSignOut">Sign out</button></div>
+      </div>
+      <div class="card form-stack"><h3 style="margin:0">Invite a friend</h3>
+        <p class="muted" style="font-size:12px;margin:0">Creates an invitation in this browser. It does not send a real email.</p>
+        <input class="field" id="friendEmail" type="email" placeholder="Friend's email address" maxlength="100">
+        <input class="field" id="friendNickname" placeholder="Friend's gaming nickname" maxlength="22">
+        <button class="btn primary" id="sendFriendInvite">Create invitation</button><div id="friendInvites" class="muted" style="font-size:12px">No invitations yet.</div>
+      </div>
+    </div>
+    <div class="card" style="margin-bottom:14px"><div class="row" style="flex-wrap:wrap"><div><h3 style="margin:0">Game activity</h3><p class="muted" style="font-size:12px;margin:3px 0 0">Set the game you are currently playing.</p></div><span id="myOnlineStatus" class="pill">● Offline</span></div>
+      <div class="form-row" style="margin-top:10px"><select class="field" id="activeGame" style="max-width:260px"><option value="">Not playing right now</option><option>Minecraft</option><option>Valorant</option><option>Fortnite</option><option>Roblox</option><option>Other game</option></select><button class="btn small ghost" id="setGameStatus">Update status</button></div>
+    </div>
+    <div class="card chat"><div class="chat-list" id="chatList"></div><div class="chat-main"><div class="row" style="margin-bottom:10px"><b id="chatWithName">Choose a friend</b><span id="chatWithStatus" class="muted" style="font-size:11px"></span></div><div class="chat-log" id="chatLog"></div><div class="row" style="gap:8px;margin-top:10px"><input class="field" id="chatInput" placeholder="Write a message..." maxlength="200"><button class="btn primary" id="sendFriendMessage">Send</button></div></div></div>
+    <div class="notice" style="margin-top:14px">Chats and invitations are stored only in this browser. Real email verification, cross-device chat and live online presence require a secure backend.</div>
+  </section>
+
+  <section class="page" id="page-marketplace">
+    <div class="section-head"><div><div class="eyebrow">CREATOR CORNER</div><h2>Marketplace</h2><p>Discover community-made gaming resources.</p></div></div>
+    <div class="notice">Showcase only — no payments, purchases or personal transactions in this prototype.</div>
+    <div class="section-head"><div><h2>Submit a free resource idea</h2><p>Save a local listing draft. It will not be published online.</p></div></div>
+    <div class="card form-row">
+      <input class="field" id="resourceName" maxlength="50" placeholder="Resource title">
+      <select class="field" id="resourceType"><option>Guide</option><option>Overlay</option><option>Banner</option><option>Training resource</option><option>Other</option></select>
+      <button class="btn primary" id="saveResource">Save draft</button>
+    </div>
+    <div id="resourceDrafts" class="grid three" style="margin-top:12px"></div>
+
+    <div class="grid three" style="margin-top:15px"><div class="card"><span class="tag">FREE RESOURCE</span><h3>Streamer overlay pack</h3><p class="muted">A starter concept for stream layouts and panels.</p><button class="btn small ghost" onclick="toast('Saved to your demo collection.')">Save item</button></div><div class="card"><span class="tag">COMMUNITY GUIDE</span><h3>Beginner PvP guide</h3><p class="muted">Practice fundamentals, positioning and smart decisions.</p><button class="btn small ghost" onclick="toast('Saved to your demo collection.')">Save item</button></div><div class="card"><span class="tag">CREATOR ASSET</span><h3>Profile banner ideas</h3><p class="muted">Inspiration for a unique gaming identity.</p><button class="btn small ghost" onclick="toast('Saved to your demo collection.')">Save item</button></div></div>
+  </section>
+
+  <section class="page" id="page-profile">
+    <div class="section-head"><div><div class="eyebrow">YOUR GAMING IDENTITY</div><h2>My profile</h2><p>Customize your player card.</p></div><span class="tag">PLAYER CARD</span></div>
+    <div class="card profile-head"><div class="big-avatar" id="profileAvatar">L</div><div class="grow"><h2 id="profileName" style="margin:0">Legend Player</h2><p class="muted" id="profileBio" style="margin:3px 0 8px">Building my legend, one game at a time.</p><span class="pill" id="profileLevel">Level 1 • Rookie</span></div></div>
+    <div class="grid stats"><div class="stat"><div class="label">TOTAL XP</div><strong id="profileXp">120</strong></div><div class="stat"><div class="label">LEVEL</div><strong id="profileLevelNum">1</strong></div><div class="stat"><div class="label">BADGES</div><strong id="profileBadges">2</strong></div><div class="stat"><div class="label">SESSIONS</div><strong id="profileSessions">0</strong></div></div>
+    <div class="section-head"><div><h2>Achievements</h2><p>Unlock badges by playing.</p></div></div><div class="grid three" id="badgeGrid"></div>
+    <div class="section-head"><div><h2>Edit profile</h2><p>Changes are saved in this browser only.</p></div></div>
+    <div class="card form-stack"><input class="field" id="editName" maxlength="22" placeholder="Display name"><textarea class="field" id="editBio" rows="3" maxlength="120" placeholder="Write a short bio"></textarea><button class="btn primary" onclick="saveProfile()">Save profile</button></div>
+    <div class="section-head"><div><h2>Level progress</h2><p>Earn XP by taking part in the demo.</p></div></div><div class="card"><div class="row"><b id="levelProgressText">120 / 500 XP</b><span class="muted" id="nextLevel">Next level</span></div><div class="progress" style="margin-top:12px"><span id="profileProgress" style="width:24%"></span></div></div>
+  </section>
+
+  <section class="page" id="page-settings">
+    <div class="section-head"><div><div class="eyebrow">CONTROL YOUR EXPERIENCE</div><h2>Settings & safety</h2><p>Manage this browser's demo data, privacy, and accessibility.</p></div><span class="tag">LOCAL SETTINGS</span></div>
+    <div class="notice" style="margin-bottom:15px">This version stores information in this browser only. Do not enter passwords, contact details, or private information. Exported data stays on your device unless you choose to share it.</div>
+    <div class="grid two">
+      <div class="card form-stack">
+        <h3 style="margin:0">Account preview</h3>
+        <p class="muted" style="margin:0;font-size:12px">Choose a display name for this browser. This is not a secure online account.</p>
+        <input class="field" id="localUsername" maxlength="22" placeholder="Gaming username">
+        <button class="btn primary" id="saveLocalUsername">Save display name</button>
+        <button class="btn ghost" id="localSignOut">Reset display name to default</button>
+      </div>
+      <div class="card form-stack">
+        <h3 style="margin:0">Accessibility</h3>
+        <label class="row"><span>Reduce animations</span><input id="reduceMotion" type="checkbox"></label>
+        <label class="row"><span>Increase text contrast</span><input id="highContrast" type="checkbox"></label>
+        <label class="row"><span>Compact layout</span><input id="compactLayout" type="checkbox"></label>
+        <button class="btn primary" id="saveAccessibility">Save display settings</button>
+      </div>
+      <div class="card form-stack">
+        <h3 style="margin:0">Your data</h3>
+        <p class="muted" style="margin:0;font-size:12px">Export or reset the local prototype data saved by this website.</p>
+        <button class="btn ghost" id="exportData">Export my demo data (.json)</button>
+        <button class="btn ghost" id="clearReports">Clear local reports</button>
+        <button class="btn" id="resetDemoData" style="border-color:#a94c65;color:#ff9eaf">Reset all local demo data</button>
+      </div>
+      <div class="card form-stack">
+        <h3 style="margin:0">Safety & moderation</h3>
+        <p class="muted" style="margin:0;font-size:12px">Reports and blocked profiles are stored locally for this demo. No moderator receives them.</p>
+        <div class="row"><span>Reports created</span><b id="reportCount">0</b></div>
+        <div class="row"><span>Blocked demo profiles</span><b id="blockedCount">0</b></div>
+        <div id="blockedList" class="muted" style="font-size:12px">No profiles blocked.</div>
+        <button class="btn ghost" id="unblockAll">Unblock all demo profiles</button>
+      </div>
+    </div>
+    <div class="section-head"><div><h2>What is needed for a real launch?</h2><p>These services cannot be activated from a standalone HTML file.</p></div></div>
+    <div class="card">
+      <ul class="muted" style="line-height:1.9">
+        <li>Hosted backend and database for shared accounts, posts, teams, comments, and XP.</li>
+        <li>Secure authentication, database access rules, and account recovery.</li>
+        <li>Server-side moderation tools, reporting queues, and abuse prevention.</li>
+        <li>Real-time messaging with blocking and safety controls.</li>
+        <li>Hosted tournament schedules, brackets, and verified match results.</li>
+        <li>Marketplace hosting and legal/payment review before any transactions.</li>
+        <li>Website hosting, domain, backups, and ongoing maintenance.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer style="padding:35px 0 5px;color:#69738d;font-size:11px;text-align:center">LEGENDS OF GAMES • V6 LOCAL DEMO • Online accounts and shared data require backend hosting</footer>
+</main>
+</div>
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()"><div class="box" id="modalBox"></div></div>
+<div class="toast" id="toast"></div>
+<script>
+const G=[["Minecraft","Sandbox","420K","Build, explore and create your own adventure."],["Valorant","FPS","310K","Tactical action, teamwork and precision."],["Fortnite","Battle Royale","280K","Compete, create and explore new experiences."],["Roblox","Adventure","260K","Discover millions of player-created worlds."],["League of Legends","MOBA","190K","Strategy, champions and team battles."],["Apex Legends","FPS","150K","Squad-based action and fast decisions."],["Counter-Strike 2","FPS","900K","The classic tactical shooter, rebuilt."],["Call of Duty: Warzone","Battle Royale","210K","Large-scale drops and loadout play."],["PUBG: Battlegrounds","Battle Royale","170K","Realistic last-squad-standing combat."],["Dota 2","MOBA","240K","Deep strategy with hundreds of heroes."],["Mobile Legends","MOBA","300K","Fast 5v5 battles on mobile."],["Overwatch 2","FPS","120K","Hero shooter with team objectives."],["Rainbow Six Siege","FPS","110K","Destructible maps and tactical breaches."],["Rocket League","Sports","95K","Soccer with rocket-powered cars."],["EA Sports FC","Sports","180K","Football with online seasons."],["NBA 2K","Sports","80K","Basketball sim with online play."],["Genshin Impact","RPG","140K","Open-world exploration and elemental combat."],["Elden Ring","RPG","90K","Challenging open-world action RPG."],["The Witcher 3","RPG","60K","Story-rich monster hunting adventure."],["Terraria","Sandbox","70K","2D digging, building and boss fights."],["Rust","Survival","65K","Harsh survival with base raiding."],["ARK: Survival","Survival","55K","Survive among tameable dinosaurs."],["Among Us","Party","75K","Social deduction with crewmates."],["Fall Guys","Party","60K","Chaotic obstacle-course battles."],["Street Fighter 6","Fighting","40K","Modern 1v1 fighting with deep combos."],["Tekken 8","Fighting","38K","3D fighter with heavy mechanics."],["Forza Horizon 5","Racing","50K","Open-world racing in Mexico."],["Mario Kart 8","Racing","85K","Item-based kart racing."],["Age of Empires IV","Strategy","30K","Build empires and command armies."],["Clash Royale","Strategy","130K","Real-time card-based duels."],["Zelda: Tears of the Kingdom","Adventure","45K","Creative exploration across Hyrule."],["Stardew Valley","Adventure","52K","Cozy farming and community life."]];
+const games=G.map(([name,genre,players,desc])=>{let h=[...name].reduce((a,c)=>(a*31+c.charCodeAt(0))%360,7);return{name,genre,players,desc,color:`linear-gradient(135deg,hsl(${h} 45% 34%),hsl(${(h+50)%360} 35% 13%) 70%,hsl(${(h+110)%360} 40% 48%))`}});
+let state=JSON.parse(localStorage.getItem("logState")||"null")||{name:"Legend Player",bio:"Building my legend, one game at a time.",xp:120,sessions:0,badges:2,posts:[
+ {user:"NovaPlayer",initial:"N",time:"12 min ago",text:"What game are you playing this weekend? Looking for new people to play with!",likes:8},
+ {user:"PixelKnight",initial:"P",time:"1 hour ago",text:"Small reminder: helping new players makes every gaming community better. Share your best beginner tip below!",likes:14},
+ {user:"ShadowFox",initial:"S",time:"3 hours ago",text:"Just finished a practice session. Consistency beats trying to improve everything at once.",likes:6}
+],teams:[{name:"Block Builders",game:"Minecraft",style:"Casual",members:8},{name:"Night Owls",game:"Valorant",style:"Competitive",members:5},{name:"Creative Crew",game:"Roblox",style:"Learning together",members:12}],joined:[]};
+const tournaments=[{name:"Community Clash",game:"Valorant",date:"Demo event • Saturday",type:"5v5 friendly"},{name:"Build & Create Cup",game:"Minecraft",date:"Demo event • Sunday",type:"Creative challenge"},{name:"Battle Royale Meetup",game:"Fortnite",date:"Demo event • Next week",type:"Squad event"}];
+const leaders=[{name:"NovaPlayer",game:"Minecraft",xp:4850},{name:"ShadowFox",game:"Valorant",xp:4120},{name:"PixelKnight",game:"Fortnite",xp:3680},{name:"LunarByte",game:"Roblox",xp:2950},{name:"Legend Player",game:"All-rounder",xp:null}];
+function persist(){localStorage.setItem("logState",JSON.stringify(state));renderProfile()}
+function toast(msg){let t=document.getElementById("toast");t.textContent=msg;t.classList.add("show");clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.classList.remove("show"),2400)}
+function showPage(name){document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));document.getElementById("page-"+name).classList.add("active");document.querySelectorAll(".nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===name));let label=name.charAt(0).toUpperCase()+name.slice(1);document.getElementById("crumb").textContent="Home / "+label;window.scrollTo({top:0,behavior:"smooth"});if(name==="profile")renderProfile()}
+document.getElementById("nav").addEventListener("click",e=>{let b=e.target.closest("button[data-page]");if(b)showPage(b.dataset.page)});
+function gameCard(g){return `<article class="card game-card"><div class="game-art" style="background:${g.color}"><span>${g.name}</span></div><div class="game-body"><div class="row"><span class="tag">${g.genre}</span><small class="muted">${g.players} players*</small></div><p class="muted" style="font-size:12px;min-height:36px">${g.desc}</p><button class="btn small ghost" onclick="toast('Added ${g.name} to your interests in this demo.')">Explore game →</button></div></article>`}
+function postCard(p,i){return `<article class="card post"><div class="post-top"><div class="mini-avatar">${escapeHtml(p.initial||p.user[0])}</div><div class="grow"><b>${escapeHtml(p.user)}</b><small class="muted" style="display:block;font-size:11px">${escapeHtml(p.time||"Just now")}</small></div><span class="tag">COMMUNITY</span></div><p>${escapeHtml(p.text)}</p><div class="post-actions"><button onclick="likePost(${i})">♡ ${p.likes||0} Like</button><button onclick="toast('Comments are a backend feature planned for the next version.')">◌ Comment</button><button onclick="toast('Post link copied in demo mode.')">↗ Share</button></div></article>`}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function renderPosts(){document.getElementById("communityPosts").innerHTML=state.posts.map(postCard).join("");document.getElementById("homePosts").innerHTML=state.posts.slice(0,2).map(postCard).join("")}
+function createPost(){let box=document.getElementById("postText"),text=box.value.trim();if(!text)return toast("Write something first.");state.posts.unshift({user:state.name,initial:state.name[0].toUpperCase(),time:"Just now",text,likes:0});box.value="";persist();renderPosts();toast("Your post was added to the demo feed.");awardXp(5,"Shared a community post",false)}
+function likePost(i){state.posts[i].likes=(state.posts[i].likes||0)+1;persist();renderPosts()}
+function renderGames(){document.getElementById("homeGames").innerHTML=games.slice(0,3).map(gameCard).join("");filterGames()}
+function filterGames(){let q=(document.getElementById("gameSearch")?.value||"").toLowerCase(),genre=document.getElementById("genreFilter")?.value||"All";let list=games.filter(g=>(g.name.toLowerCase().includes(q)||g.genre.toLowerCase().includes(q))&&(genre==="All"||g.genre===genre));document.getElementById("discoverGames").innerHTML=list.length?list.map(gameCard).join(""):'<div class="empty">No games found. Try another search.</div>'}
+function renderTeams(){document.getElementById("teamList").innerHTML=state.teams.map((t,i)=>`<div class="card"><div class="row"><span class="tag">${escapeHtml(t.game)}</span><span class="muted" style="font-size:11px">${t.members} members</span></div><h3>${escapeHtml(t.name)}</h3><p class="muted">${escapeHtml(t.style)} squad</p><button class="btn small ${state.joined.includes(i)?"":"primary"}" onclick="joinTeam(${i})">${state.joined.includes(i)?"Request sent ✓":"Request to join"}</button></div>`).join("")}
+function createTeam(){let name=document.getElementById("teamName").value.trim();if(!name)return toast("Enter a team name.");state.teams.unshift({name,game:document.getElementById("teamGame").value,style:document.getElementById("teamStyle").value,members:1});document.getElementById("teamName").value="";persist();renderTeams();toast("Team created in this browser.");awardXp(15,"Created a team",false)}
+function joinTeam(i){if(!state.joined.includes(i)){state.joined.push(i);persist();renderTeams();toast("Join request simulated in demo mode.")}}
+function renderTournaments(){document.getElementById("tournamentList").innerHTML=tournaments.map((t,i)=>`<div class="card"><span class="tag">OPEN • DEMO</span><h3>${t.name}</h3><p class="muted">${t.game} · ${t.type}</p><p style="font-size:12px">${t.date}</p><button class="btn primary small" onclick="joinTournament(${i})">${state.joined.includes("t"+i)?"Registered ✓":"Register interest"}</button></div>`).join("")}
+function joinTournament(i){if(!state.joined.includes("t"+i)){state.joined.push("t"+i);persist();renderTournaments();toast("Interest registered in demo mode.");awardXp(10,"Joined a tournament",false)}}
+function awardXp(amount,reason,notify=true){state.xp+=amount;persist();renderProfile();if(notify)toast(reason+" • +"+amount+" XP")}
+function level(){return Math.floor(state.xp/500)+1}
+function renderProfile(){let lvl=level(),xpIn=state.xp%500;document.getElementById("homeLevel").textContent=String(lvl).padStart(2,"0");document.getElementById("homeXp").textContent=state.xp;document.getElementById("homeBadges").textContent=state.badges;document.getElementById("profileName").textContent=state.name;document.getElementById("profileBio").textContent=state.bio;document.getElementById("profileAvatar").textContent=(state.name[0]||"L").toUpperCase();document.getElementById("topAvatar").textContent=(state.name[0]||"L").toUpperCase();document.getElementById("profileLevel").textContent="Level "+lvl+" • "+(lvl<5?"Rookie":lvl<10?"Rising Legend":"Elite");document.getElementById("profileXp").textContent=state.xp;document.getElementById("profileLevelNum").textContent=lvl;document.getElementById("profileBadges").textContent=state.badges;document.getElementById("profileSessions").textContent=state.sessions;document.getElementById("levelProgressText").textContent=xpIn+" / 500 XP";document.getElementById("profileProgress").style.width=(xpIn/5)+"%";document.getElementById("nextLevel").textContent=(500-xpIn)+" XP to next level";document.getElementById("trainingSessions").textContent=state.sessions;document.getElementById("trainingProgress").style.width=Math.min(100,state.sessions*10)+"%";document.getElementById("editName").value=state.name;document.getElementById("editBio").value=state.bio;document.getElementById("profileBio").title=state.bio}
+function saveProfile(){let name=document.getElementById("editName").value.trim(),bio=document.getElementById("editBio").value.trim();if(!name)return toast("Please enter a display name.");state.name=name;state.bio=bio||"Ready to become a legend.";persist();renderPosts();toast("Profile saved on this device.")}
+function renderLeaders(){let data=[...leaders.filter(x=>x.name!=="Legend Player"),{name:state.name,game:"Your profile",xp:state.xp}].sort((a,b)=>b.xp-a.xp);document.getElementById("leaderTable").innerHTML=data.map((p,i)=>`<tr><td><span class="rank">${i+1}</span></td><td><b>${escapeHtml(p.name)}</b></td><td class="muted">${escapeHtml(p.game)}</td><td>${p.xp.toLocaleString()} XP</td></tr>`).join("");document.getElementById("homeLeaders").innerHTML=data.slice(0,4).map((p,i)=>`<div class="list-item"><span class="rank">${i+1}</span><div class="grow"><b>${escapeHtml(p.name)}</b><small>${escapeHtml(p.game)}</small></div><b>${p.xp.toLocaleString()}</b></div>`).join("")}
+function renderPlayers(){let people=[["NovaPlayer","Minecraft","Builder"],["ShadowFox","Valorant","Competitive"],["PixelKnight","Fortnite","Casual"],["LunarByte","Roblox","Creator"],["EchoStorm","Apex Legends","Competitive"],["MossyCube","Minecraft","Survival"]];document.getElementById("players").innerHTML=people.map(p=>`<div class="card"><div class="row"><div class="post-top"><div class="mini-avatar">${p[0][0]}</div><div><b>${p[0]}</b><small class="muted" style="display:block">${p[1]}</small></div></div><span class="tag">${p[2]}</span></div><button class="btn small ghost" style="margin-top:13px" onclick="toast('Follow feature will connect to real accounts in the next version.')">View player</button></div>`).join("")}
+let reaction={mode:"idle",start:0,timer:null,best:Number(localStorage.getItem("logBest")||0)};
+function startReaction(){clearTimeout(reaction.timer);reaction.mode="wait";let box=document.getElementById("reactionBox");box.className="reaction-box ready";document.getElementById("reactionTitle").textContent="Wait for green...";document.getElementById("reactionHint").textContent="Don't click too early.";document.getElementById("reactionStart").disabled=true;reaction.timer=setTimeout(()=>{reaction.mode="go";reaction.start=performance.now();box.className="reaction-box go";document.getElementById("reactionTitle").textContent="CLICK NOW!";document.getElementById("reactionHint").textContent="Tap the panel as quickly as you can."},1200+Math.random()*2600)}
+function reactionClick(){if(reaction.mode==="wait"){clearTimeout(reaction.timer);reaction.mode="idle";document.getElementById("reactionTitle").textContent="Too early!";document.getElementById("reactionHint").textContent="Wait for green, then click.";document.getElementById("reactionBox").className="reaction-box";document.getElementById("reactionStart").disabled=false;return}if(reaction.mode==="go"){let ms=Math.round(performance.now()-reaction.start);reaction.mode="done";document.getElementById("reactionTitle").textContent=ms+" ms";document.getElementById("reactionHint").textContent="Nice! Press start to try again.";document.getElementById("reactionBox").className="reaction-box";document.getElementById("reactionStart").disabled=false;if(!reaction.best||ms<reaction.best){reaction.best=ms;localStorage.setItem("logBest",ms);document.getElementById("reactionBest").textContent="Personal best: "+ms+" ms"}awardXp(5,"Reaction test completed",false);return}toast("Press Start to begin a test.")}
+document.getElementById("reactionBest").textContent="Personal best: "+(reaction.best?reaction.best+" ms":"—");
+document.getElementById("gameSearch").addEventListener("input",filterGames);document.getElementById("genreFilter").addEventListener("change",filterGames);
+document.getElementById("globalSearch").addEventListener("keydown",e=>{if(e.key==="Enter"){document.getElementById("gameSearch").value=e.target.value;showPage("discover");filterGames()}});
+function init(){renderGames();renderPosts();renderTeams();renderTournaments();renderPlayers();renderLeaders();renderProfile()}
+init();
 </script>
-</body></html>
+<script>
+/* ===== v2 upgrades ===== */
+const TIPS={FPS:["Keep your crosshair at head height and pre-aim common angles.","Learn smokes, flashes and callouts; communication wins rounds.","Warm up in the Aim Trainer for 5 minutes before ranked."],"Battle Royale":["Choose landing spots by your loot-and-fight goal.","Rotate early and stay inside safe-zone edges.","Practice building/edits and aim in training before matches."],MOBA:["Last-hit minions and track the enemy jungler.","Group for objectives: dragons, towers and Baron.","Ping, never flame; communication beats mechanics."],Sandbox:["Plan a build with a simple blueprint first.","Automate resource gathering early.","Share your builds with the community for feedback."],Adventure:["Explore side paths; the best rewards are hidden.","Save often and read quest logs.","Join a community group to share secrets."],RPG:["Pick a build and commit to it early.","Upgrade gear before chasing levels.","Read item descriptions; synergies matter."],Survival:["Secure shelter and food before exploring.","Never carry everything; keep a stash.","Team up: groups survive longer."],Sports:["Master the basic controls before advanced skill moves.","Practice set pieces and defending.","Review replays to find mistakes."],Strategy:["Scout early and keep your economy growing.","Counter the enemy composition, not a fixed plan.","Learn a build order and repeat it."],Fighting:["Learn frame data basics and your punish combos.","Block more; stay patient.","Use training mode daily with short drills."],Racing:["Brake early, accelerate late through corners.","Learn the racing line on each track.","Tune your car once you know the basics."],Party:["Stay flexible and have fun first.","Communicate with friends in voice chat.","Watch what others do before committing."]};
+function closeModal(){document.getElementById('modal').classList.remove('show')}
+function openGuide(n){const g=games.find(x=>x.name===n),t=TIPS[g.genre]||TIPS.Adventure,aim=['FPS','Battle Royale'].includes(g.genre);
+ document.getElementById('modalBox').innerHTML=`<div class="game-art" style="background:${g.color};border-radius:12px;min-height:90px"><span>${escapeHtml(g.name)}</span></div><div class="row" style="margin:14px 0 4px"><h2 style="margin:0">${escapeHtml(g.name)} guide</h2><span class="tag">${g.genre}</span></div><p class="muted">${escapeHtml(g.desc)}</p><h3>Starter tips</h3><ul>${t.map(x=>`<li>${x}</li>`).join('')}</ul><div class="row" style="gap:8px;justify-content:flex-end">${aim?'<button class="btn primary small" onclick="closeModal();showPage(\'training\')">Train aim →</button>':''}<button class="btn small ghost" onclick="closeModal()">Close</button></div>`;
+ document.getElementById('modal').classList.add('show');if(!state.guides)state.guides=[];if(!state.guides.includes(n)){state.guides.push(n);awardXp(5,'Read a guide',false)}}
+function gameCard(g){return `<article class="card game-card"><div class="game-art" style="background:${g.color}"><span>${escapeHtml(g.name)}</span></div><div class="game-body"><div class="row"><span class="tag">${g.genre}</span><small class="muted">${g.players} players*</small></div><p class="muted" style="font-size:12px;min-height:36px">${g.desc}</p><button class="btn small ghost" onclick="openGuide('${g.name.replace(/'/g,"\\'")}')">Open guide →</button></div></article>`}
+function renderLibrary(){const q=document.getElementById('libSearch').value.toLowerCase(),gn=document.getElementById('libGenre').value;const l=games.filter(g=>(g.name.toLowerCase().includes(q)||g.genre.toLowerCase().includes(q))&&(gn==='All'||g.genre===gn));document.getElementById('libCount').textContent=l.length+' GAMES';document.getElementById('libraryGrid').innerHTML=l.length?l.map(gameCard).join(''):'<div class="empty">No games found.</div>'}
+(function(){const genres=[...new Set(games.map(g=>g.genre))].sort(),opts='<option value="All">All genres</option>'+genres.map(x=>`<option>${x}</option>`).join('');['genreFilter','libGenre','teamGame'].forEach(id=>{const el=document.getElementById(id);if(id==='teamGame'){el.innerHTML=games.slice(0,12).map(g=>`<option>${escapeHtml(g.name)}</option>`).join('')+'<option>Other</option>'}else el.innerHTML=opts});
+ document.getElementById('libSearch').addEventListener('input',renderLibrary);document.getElementById('libGenre').addEventListener('change',renderLibrary)})();
+/* posts with working comments */
+function postCard(p,i){const c=p.comments||[];return `<article class="card post"><div class="post-top"><div class="mini-avatar">${escapeHtml(p.initial||p.user[0])}</div><div class="grow"><b>${escapeHtml(p.user)}</b><small class="muted" style="display:block;font-size:11px">${escapeHtml(p.time||'Just now')}</small></div><span class="tag">COMMUNITY</span></div><p>${escapeHtml(p.text)}</p><div class="post-actions"><button onclick="likePost(${i})">♡ ${p.likes||0} Like</button><button onclick="toggleCmt(${i})">◌ ${c.length} Comment${c.length===1?'':'s'}</button><button onclick="copyPost(${i})">↗ Share</button></div><div class="cmts" id="cm${i}" style="display:${(window.openC||{})[i]?'grid':'none'}">${c.map(x=>`<div><b>${escapeHtml(x.u)}</b> ${escapeHtml(x.t)}</div>`).join('')}<div class="row" style="gap:6px;background:none;padding:0"><input class="field" id="ci${i}" placeholder="Write a comment..." maxlength="140" onkeydown="if(event.key==='Enter')addCmt(${i})"><button class="btn small primary" onclick="addCmt(${i})">Send</button></div></div></article>`}
+function toggleCmt(i){window.openC=window.openC||{};window.openC[i]=!window.openC[i];renderPosts()}
+function addCmt(i){const el=document.getElementById('ci'+i),t=el.value.trim();if(!t)return;(state.posts[i].comments=state.posts[i].comments||[]).push({u:state.name,t});window.openC=window.openC||{};window.openC[i]=true;persist();renderPosts();awardXp(2,'Commented',false)}
+function copyPost(i){const t=state.posts[i].text;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>toast('Post text copied.')).catch(()=>toast('Copy not available here.'))}
+/* achievements */
+const BADGES=[["Rookie","Join the arena",s=>true],["First steps","Reach 100 XP",s=>s.xp>=100],["Trainee","Finish a training round",s=>s.sessions>=1],["Grinder","Finish 5 training rounds",s=>s.sessions>=5],["Voice","Publish a post",s=>s.posts.some(p=>p.user===s.name&&p.time==='Just now')||(s.posted||0)>0],["Squad leader","Create a team",s=>(s.created||0)>0],["Scholar","Read 3 guides",s=>(s.guides||[]).length>=3],["Level 2","Reach 500 XP",s=>s.xp>=500]];
+function persist(){state.badges=BADGES.filter(b=>b[2](state)).length;localStorage.setItem('logState',JSON.stringify(state));renderProfile()}
+const _rp=renderProfile;window.renderProfile=function(){_rp();const el=document.getElementById('badgeGrid');if(el)el.innerHTML=BADGES.map(b=>`<div class="card ${b[2](state)?'':'badge-off'}"><span class="tag">${b[2](state)?'UNLOCKED':'LOCKED'}</span><h3 style="margin:8px 0 2px">${b[0]}</h3><p class="muted" style="margin:0;font-size:12px">${b[1]}</p></div>`).join('');const ts=document.getElementById('trainingSessions');if(ts){ts.textContent=state.sessions;document.getElementById('trainingProgress').style.width=Math.min(100,state.sessions*10)+'%'}};
+const _cp=createPost,_ct=createTeam;createPost=function(){const n=state.posts.length;_cp();if(state.posts.length>n){state.posted=(state.posted||0)+1;persist()}};createTeam=function(){const n=state.teams.length;_ct();if(state.teams.length>n){state.created=(state.created||0)+1;persist()}};
+/* Friend messaging demo: no automatic replies or fake bot conversations. */
+const demoContacts=[
+ {nickname:"NovaPlayer",email:"nova@example.test",game:"Minecraft"},
+ {nickname:"ShadowFox",email:"shadow@example.test",game:"Valorant"},
+ {nickname:"PixelKnight",email:"pixel@example.test",game:"Fortnite"},
+ {nickname:"LunarByte",email:"lunar@example.test",game:"Roblox"}
+];
+let account=JSON.parse(localStorage.getItem('logEmailDemoAccount')||'null');
+let friends=JSON.parse(localStorage.getItem('logFriends')||'null')||demoContacts.map(x=>({...x,accepted:true,online:false}));
+let invites=JSON.parse(localStorage.getItem('logFriendInvites')||'[]');
+let chats=JSON.parse(localStorage.getItem('logFriendChats')||'{}');
+let curChat=friends.find(x=>x.accepted)?.email||'';
+let myGame=localStorage.getItem('logActiveGame')||'';
+function saveFriendData(){localStorage.setItem('logFriends',JSON.stringify(friends));localStorage.setItem('logFriendInvites',JSON.stringify(invites));localStorage.setItem('logFriendChats',JSON.stringify(chats))}
+function validEmail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)}
+function renderAccount(){
+ const s=document.getElementById('emailAccountState');if(s)s.textContent=account?account.nickname+' · Demo':'Guest';
+ const e=document.getElementById('accountEmail'),n=document.getElementById('accountNickname');if(e)e.value=account?.email||'';if(n)n.value=account?.nickname||'';
+ const g=document.getElementById('activeGame');if(g)g.value=myGame;
+ const status=document.getElementById('myOnlineStatus');if(status)status.innerHTML=myGame?'<span class="online-dot"></span>Online · '+escapeHtml(myGame):'<span class="offline-dot"></span>Offline';
+}
+function renderInvites(){
+ const el=document.getElementById('friendInvites');if(!el)return;
+ const pending=invites.filter(x=>x.status==='pending');
+ el.innerHTML=pending.length?pending.map(x=>`<div class="list-item"><div class="grow"><b>${escapeHtml(x.nickname)}</b><small>${escapeHtml(x.email)} · Demo invitation</small></div><button class="btn small ghost" onclick="acceptDemoInvite('${encodeURIComponent(x.email)}')">Accept demo</button></div>`).join(''):'No pending invitations.';
+}
+function renderChat(){
+ const list=document.getElementById('chatList');if(!list)return;
+ const accepted=friends.filter(x=>x.accepted);if(!accepted.some(x=>x.email===curChat))curChat=accepted[0]?.email||'';
+ list.innerHTML=accepted.map(f=>`<div class="friend-chip ${f.email===curChat?'selected':''}" onclick="curChat='${encodeURIComponent(f.email)}';curChat=decodeURIComponent(curChat);renderChat()"><div class="mini-avatar">${escapeHtml((f.nickname||'?')[0].toUpperCase())}</div><div class="grow"><b>${escapeHtml(f.nickname)}</b><small>${f.online?'<span class="online-dot"></span>Online':'<span class="offline-dot"></span>Offline'}${f.game?' · '+escapeHtml(f.game):''}</small></div></div>`).join('')||'<div class="empty">Add a friend to start chatting.</div>';
+ const f=accepted.find(x=>x.email===curChat),log=document.getElementById('chatLog');
+ document.getElementById('chatWithName').textContent=f?f.nickname:'Choose a friend';
+ document.getElementById('chatWithStatus').textContent=f?(f.online?'Online'+(f.game?' · '+f.game:''):'Offline'):'';
+ const msgs=f?(chats[curChat]||[]):[];
+ log.innerHTML=msgs.length?msgs.map(m=>`<div class="bub ${m.me?'me':''}">${escapeHtml(m.t)}<small style="display:block;opacity:.65;font-size:9px;margin-top:3px">${m.me?'You':'Friend'}</small></div>`).join(''):'<div class="muted">No messages yet. Say hello!</div>';log.scrollTop=log.scrollHeight;
+}
+function signInDemo(){
+ const email=document.getElementById('accountEmail').value.trim().toLowerCase(),nickname=document.getElementById('accountNickname').value.trim();
+ if(!validEmail(email))return toast('Enter a valid email format.');
+ if(!/^[\p{L}\p{N}_ -]{3,22}$/u.test(nickname))return toast('Nickname must be 3–22 letters, numbers, spaces, _ or -.');
+ account={email,nickname};localStorage.setItem('logEmailDemoAccount',JSON.stringify(account));renderAccount();toast('Signed in on this browser as '+nickname+'.');
+}
+function signOutDemo(){account=null;myGame='';localStorage.removeItem('logEmailDemoAccount');localStorage.removeItem('logActiveGame');renderAccount();toast('Signed out of this local demo.')}
+function sendDemoInvite(){
+ if(!account)return toast('Sign in first.');
+ const email=document.getElementById('friendEmail').value.trim().toLowerCase(),nickname=document.getElementById('friendNickname').value.trim();
+ if(!validEmail(email))return toast('Enter a valid friend email format.');
+ if(email===account.email)return toast('You cannot invite yourself.');
+ if(!/^[\p{L}\p{N}_ -]{3,22}$/u.test(nickname))return toast('Friend nickname must be 3–22 characters.');
+ if(friends.some(x=>x.email===email&&x.accepted))return toast('This friend is already added.');
+ invites=invites.filter(x=>x.email!==email);invites.unshift({email,nickname,status:'pending',createdAt:Date.now()});saveFriendData();
+ document.getElementById('friendEmail').value='';document.getElementById('friendNickname').value='';renderInvites();toast('Invitation created locally. No email was sent.');
+}
+function acceptDemoInvite(encoded){const email=decodeURIComponent(encoded),inv=invites.find(x=>x.email===email);if(!inv)return;
+ let f=friends.find(x=>x.email===email);if(!f){f={email,nickname:inv.nickname,accepted:true,online:false,game:''};friends.push(f)}else f.accepted=true;
+ inv.status='accepted';curChat=email;saveFriendData();renderInvites();renderChat();toast('Friend added in this browser demo.')}
+function sendChat(){
+ if(!account)return toast('Sign in first to chat.');
+ const input=document.getElementById('chatInput'),t=input.value.trim();if(!t)return;
+ if(!friends.some(x=>x.email===curChat&&x.accepted))return toast('Choose an accepted friend.');
+ chats[curChat]=chats[curChat]||[];chats[curChat].push({me:1,t,at:Date.now()});input.value='';saveFriendData();renderChat();
+}
+function updateGameStatus(){if(!account)return toast('Sign in first.');
+ myGame=document.getElementById('activeGame').value;localStorage.setItem('logActiveGame',myGame);renderAccount();toast(myGame?'Local status: Online · '+myGame:'Local status: Offline');}
+document.getElementById('emailSignIn').addEventListener('click',signInDemo);
+document.getElementById('emailSignOut').addEventListener('click',signOutDemo);
+document.getElementById('sendFriendInvite').addEventListener('click',sendDemoInvite);
+document.getElementById('setGameStatus').addEventListener('click',updateGameStatus);
+document.getElementById('sendFriendMessage').addEventListener('click',sendChat);
+document.getElementById('chatInput').addEventListener('keydown',e=>{if(e.key==='Enter')sendChat()});
+renderAccount();renderInvites();renderChat();
+
+/* Transparent demo community bot: rotating nicknames and prompts, only on Community page. */
+const botNames=["PixelPanda","CraftyComet","NovaNinja","FrostByte","MangoMage","EchoRider","LunarWolf","ByteBard","CobaltFox","MistyMoth","TurboTurtle","NeonOtter","CloudCrafter","StarrySniper","RubyRaven","CosmicCube","DriftDino","GlitchGoblin","SolarSprite","PhantomPuff","AquaAce","VelvetViper","MarbleMantis","ZippyZen"];
+const botPrompts=["What game are you playing today? Share one thing you enjoy about it.","Teach a beginner one useful tip in one sentence.","Which game deserves more attention? Tell everyone why.","What makes someone a great teammate?","What skill are you practising this week?","Share a creative build or game moment you are proud of.","If you could add one feature to your favourite game, what would it be?","Friendly reminder: respect your teammates and keep games fun!"];
+function communityBotPost(){
+ const page=document.getElementById('page-community'),toggle=document.getElementById('communityBotToggle');
+ if(!toggle?.checked||!page?.classList.contains('active'))return;
+ const name=botNames[Math.floor(Math.random()*botNames.length)],prompt=botPrompts[Math.floor(Math.random()*botPrompts.length)];
+ state.posts.unshift({user:name,initial:name[0],time:'Just now · LOG demo bot',text:prompt,likes:0,bot:true});
+ state.posts=state.posts.slice(0,30);persist();renderPosts();
+ document.getElementById('communityBotStatus').textContent='Demo prompt posted by '+name+'.';
+}
+document.getElementById('communityBotToggle').addEventListener('change',e=>{document.getElementById('communityBotStatus').textContent=e.target.checked?'Community bot active while this page is open.':'Community bot paused.'});
+setInterval(communityBotPost,30000);
+function selectTrainerMode(mode){
+ const frame=document.getElementById('trainerFrame');
+ try{
+  const doc=frame.contentDocument;
+  const button=doc&&doc.querySelector('.mode[data-mode="'+mode+'"]');
+  if(!button){toast('Aim Trainer is still loading. Try again in a moment.');frame.scrollIntoView({behavior:'smooth',block:'start'});return}
+  button.click();
+  frame.scrollIntoView({behavior:'smooth',block:'start'});
+  toast('Trainer mode selected: '+mode+'. Press Start training inside the trainer.');
+ }catch(e){toast('Open the Training page again and try selecting the mode.')}
+}
+/* training bridge */
+(function(){const f=document.getElementById('trainerFrame');f.srcdoc=document.getElementById('trainerSrc').textContent.replace(/<\\\/script/g,'</script');
+ addEventListener('message',e=>{if(e.source!==f.contentWindow||!e.data||!e.data.log)return;const d=e.data;if(d.type==='h'&&d.h>300)f.style.height=(d.h+4)+'px';
+  if(d.type==='round'){state.sessions++;state.lastRank=d.rank;awardXp(Math.min(40,5+Math.max(0,Number(d.hits)||0)),d.mode+' round complete',true)}})})();
+renderLibrary();renderChat();renderPosts();renderProfile();renderTeams();filterGames();
+</script>
+
+<style id="log-v3-styles">
+#page-settings .grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+#page-settings input[type=checkbox]{accent-color:var(--purple);width:18px;height:18px}
+.log-pop{position:fixed;right:22px;top:76px;z-index:60;width:min(340px,calc(100vw - 28px));background:#111525;border:1px solid #394260;border-radius:15px;padding:15px;box-shadow:0 18px 55px #000b;display:none}
+.log-pop.show{display:block}.log-pop p{font-size:12px;color:var(--muted)}
+.log-notice{font-size:12px;padding:9px;border-bottom:1px solid var(--line)}
+.log-muted-btn{border:0;background:none;color:var(--muted);font-size:11px;cursor:pointer}
+@media(max-width:760px){#page-settings .grid.two{grid-template-columns:1fr}.log-pop{top:auto;bottom:85px;right:12px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+</style>
+<div class="log-pop" id="logNotificationPanel">
+  <div class="row"><b>Notifications</b><button class="log-muted-btn" id="closeLogNotifications">Close</button></div>
+  <div id="logNotificationItems"><p>No new notifications yet.</p></div>
+</div>
+<script id="log-v3-upgrades">
+(function(){
+'use strict';
+const $=id=>document.getElementById(id);
+const safeRead=(k,fallback)=>{try{const v=JSON.parse(localStorage.getItem(k));return v??fallback}catch{return fallback}};
+const safeWrite=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));return true}catch{return false}};
+const notify=(message)=>{let a=safeRead('logV3Notifications',[]);a.unshift({message,time:new Date().toLocaleString()});a=a.slice(0,20);safeWrite('logV3Notifications',a);renderNotifications()};
+const getBlocked=()=>safeRead('logV3Blocked',[]);
+const setBlocked=a=>safeWrite('logV3Blocked',a);
+const getReports=()=>safeRead('logV3Reports',[]);
+function toastV3(m){if(typeof window.toast==='function')window.toast(m);else alert(m)}
+function renderNotifications(){const a=safeRead('logV3Notifications',[]);$('notificationDot').textContent=a.length>9?'9+':a.length;$('logNotificationItems').innerHTML=a.length?a.map(x=>`<div class="log-notice">${esc(x.message)}<small class="muted" style="display:block">${esc(x.time)}</small></div>`).join(''):'<p>No notifications yet.</p>'}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+$('logNotifications')?.addEventListener('click',()=>{$('logNotificationPanel').classList.toggle('show');renderNotifications()});
+$('closeLogNotifications')?.addEventListener('click',()=>$('logNotificationPanel').classList.remove('show'));
+document.addEventListener('click',e=>{if(!e.target.closest('#logNotificationPanel')&&!e.target.closest('#logNotifications'))$('logNotificationPanel')?.classList.remove('show')});
+
+/* Add safety controls to posts. Reports and blocks remain local; they are not sent to a moderator. */
+const originalPostCard=window.postCard;
+window.postCard=function(p,i){
+  if(getBlocked().includes(p.user))return '';
+  const base=originalPostCard(p,i);
+  if(!base)return base;
+  return base.replace('<span class="tag">COMMUNITY</span>', '<span class="tag">COMMUNITY</span><button class="log-muted-btn" onclick="reportLogUser('+JSON.stringify(p.user)+')">Report</button><button class="log-muted-btn" onclick="blockLogUser('+JSON.stringify(p.user)+')">Block</button>');
+};
+window.reportLogUser=function(name){
+  const reason=prompt('Why are you reporting this demo profile? (Keep it brief)');
+  if(!reason||!reason.trim())return;
+  const r=getReports();r.push({user:name,reason:reason.trim().slice(0,180),date:new Date().toISOString()});safeWrite('logV3Reports',r);
+  notify('A local demo report was saved for '+name+'. No moderator was contacted.');
+  renderSafety();toastV3('Report saved locally in this browser.');
+};
+window.blockLogUser=function(name){
+  if(!confirm('Hide '+name+' from this browser’s demo feed?'))return;
+  const b=getBlocked();if(!b.includes(name))b.push(name);setBlocked(b);
+  if(typeof window.renderPosts==='function')window.renderPosts();
+  renderSafety();toastV3(name+' is hidden in this browser.');
+};
+function renderSafety(){
+  if($('reportCount'))$('reportCount').textContent=getReports().length;
+  if($('blockedCount'))$('blockedCount').textContent=getBlocked().length;
+  if($('blockedList'))$('blockedList').textContent=getBlocked().length?getBlocked().join(', '):'No profiles blocked.';
+}
+
+/* Settings and accessibility */
+const prefs=safeRead('logV3Prefs',{});
+if($('reduceMotion'))$('reduceMotion').checked=!!prefs.reduceMotion;
+if($('highContrast'))$('highContrast').checked=!!prefs.highContrast;
+if($('compactLayout'))$('compactLayout').checked=!!prefs.compactLayout;
+function applyPrefs(p){
+  document.body.classList.toggle('log-high-contrast',!!p.highContrast);
+  document.body.classList.toggle('log-compact',!!p.compactLayout);
+  document.documentElement.style.scrollBehavior=p.reduceMotion?'auto':'smooth';
+  if(p.reduceMotion){document.documentElement.style.setProperty('--log-motion','0s')}
+  else document.documentElement.style.removeProperty('--log-motion');
+}
+applyPrefs(prefs);
+$('saveAccessibility')?.addEventListener('click',()=>{
+  const p={reduceMotion:$('reduceMotion').checked,highContrast:$('highContrast').checked,compactLayout:$('compactLayout').checked};
+  safeWrite('logV3Prefs',p);applyPrefs(p);toastV3('Display settings saved.');
+});
+$('saveLocalUsername')?.addEventListener('click',()=>{
+  const n=$('localUsername').value.trim();
+  if(!/^[\p{L}\p{N}_ -]{3,22}$/u.test(n)){toastV3('Use 3–22 letters, numbers, spaces, _ or -.');return}
+  if(typeof state!=='undefined'){state.name=n;persist();renderPosts();renderLeaders()}
+  safeWrite('logV3LocalUser',{name:n});$('localUsername').value=n;notify('Your local display name was updated.');toastV3('Display name updated on this device.');
+});
+$('localSignOut')?.addEventListener('click',()=>{
+  if(typeof state!=='undefined'){state.name='Legend Player';state.bio='Building my legend, one game at a time.';persist();renderPosts()}
+  safeWrite('logV3LocalUser',{name:'Legend Player'});$('localUsername').value='Legend Player';toastV3('Local display name reset.');
+});
+$('localUsername')&&($('localUsername').value=safeRead('logV3LocalUser',{name:(typeof state!=='undefined'?state.name:'Legend Player')}).name||'Legend Player');
+$('exportData')?.addEventListener('click',()=>{
+  const keys=['logState','logBest','logChats','logV3Notifications','logV3Blocked','logV3Reports','logV3Prefs','logV3LocalUser','logV3EventIdeas','logV3Resources'];
+  const data={exportedAt:new Date().toISOString(),note:'Local Legends of Games demo data. This is not an online account export.',items:{}};
+  keys.push(...Object.keys(localStorage).filter(k=>/^ss_/.test(k)));keys.forEach(k=>{try{const v=localStorage.getItem(k);if(v!==null)data.items[k]=JSON.parse(v)}catch{}});
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');
+  a.href=url;a.download='legends-of-games-local-data.json';a.click();URL.revokeObjectURL(url);toastV3('Your local demo data export was created.');
+});
+$('clearReports')?.addEventListener('click',()=>{if(confirm('Clear all local reports saved in this browser?')){safeWrite('logV3Reports',[]);renderSafety();toastV3('Local reports cleared.')}});
+$('unblockAll')?.addEventListener('click',()=>{setBlocked([]);if(typeof window.renderPosts==='function')window.renderPosts();renderSafety();toastV3('All demo profiles unblocked.')});
+$('resetDemoData')?.addEventListener('click',()=>{
+  if(!confirm('Reset all Legends of Games demo data in this browser? This cannot be undone.'))return;
+  Object.keys(localStorage).filter(k=>/^(log|ss_)/.test(k)).forEach(k=>localStorage.removeItem(k));
+  location.reload();
+});
+
+/* Profile picture: image is saved locally only. */
+(function addAvatarUpload(){
+ const profile=$('profileAvatar');if(!profile||$('avatarUpload'))return;
+ const wrap=document.createElement('div');wrap.className='card form-stack';wrap.style.marginTop='12px';
+ wrap.innerHTML='<b>Profile picture</b><p class="muted" style="margin:0;font-size:12px">Choose an image from this device. It will not upload to a server.</p><input type="file" id="avatarUpload" accept="image/png,image/jpeg,image/webp"><button class="btn ghost" id="removeAvatar">Remove picture</button>';
+ $('page-profile').appendChild(wrap);
+ const saved=localStorage.getItem('logV3Avatar');if(saved){profile.textContent='';profile.style.backgroundImage=`url("${saved}")`;profile.style.backgroundSize='cover';profile.style.backgroundPosition='center'}
+ $('avatarUpload').addEventListener('change',e=>{
+  const f=e.target.files?.[0];if(!f)return;
+  if(!['image/png','image/jpeg','image/webp'].includes(f.type)||f.size>1200000){toastV3('Choose a PNG/JPG/WEBP image under 1.2 MB.');e.target.value='';return}
+  const reader=new FileReader();reader.onload=()=>{try{localStorage.setItem('logV3Avatar',reader.result);profile.textContent='';profile.style.backgroundImage=`url("${reader.result}")`;profile.style.backgroundSize='cover';profile.style.backgroundPosition='center';toastV3('Profile picture saved locally.')}catch{toastV3('Image is too large for browser storage.')}};reader.readAsDataURL(f);
+ });
+ $('removeAvatar').addEventListener('click',()=>{localStorage.removeItem('logV3Avatar');profile.style.backgroundImage='';profile.textContent=(typeof state!=='undefined'?(state.name?.[0]||'L'):'L').toUpperCase();toastV3('Profile picture removed.')});
+})();
+
+/* Local event proposals */
+function renderEventIdeas(){const a=safeRead('logV3EventIdeas',[]);const el=$('eventIdeas');if(el)el.innerHTML=a.length?a.map(x=>`<div class="card"><span class="tag">LOCAL PROPOSAL</span><h3>${esc(x.name)}</h3><p class="muted">${esc(x.game)} · ${esc(x.type)}</p><small class="muted">${esc(x.date)}</small></div>`).join(''):'<div class="empty">No event proposals yet.</div>'}
+$('submitEventIdea')?.addEventListener('click',()=>{
+ const name=$('eventIdeaName').value.trim();if(!name){toastV3('Enter an event name.');return}
+ const a=safeRead('logV3EventIdeas',[]);a.unshift({name,game:$('eventIdeaGame').value,type:$('eventIdeaType').value,date:new Date().toLocaleDateString()});safeWrite('logV3EventIdeas',a);
+ $('eventIdeaName').value='';renderEventIdeas();notify('Your community event proposal was saved locally.');toastV3('Event proposal saved in this browser.');
+});
+renderEventIdeas();
+
+/* Marketplace drafts and saved resources */
+function renderResources(){const a=safeRead('logV3Resources',[]),el=$('resourceDrafts');if(el)el.innerHTML=a.length?a.map(x=>`<div class="card"><span class="tag">PRIVATE DRAFT</span><h3>${esc(x.name)}</h3><p class="muted">${esc(x.type)}</p></div>`).join(''):'<div class="empty">No resource drafts saved.</div>'}
+$('saveResource')?.addEventListener('click',()=>{
+ const name=$('resourceName').value.trim();if(!name){toastV3('Enter a resource title.');return}
+ const a=safeRead('logV3Resources',[]);a.unshift({name,type:$('resourceType').value});safeWrite('logV3Resources',a);$('resourceName').value='';renderResources();toastV3('Resource draft saved locally.');
+});
+renderResources();
+
+/* Make the profile avatar and local account label consistent. */
+if(typeof state!=='undefined'&&$('localUsername'))$('localUsername').value=state.name;
+renderSafety();renderNotifications();
+})();
+</script>
+
+</body>
+</html>
